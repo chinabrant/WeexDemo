@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "WeexViewController.h"
 
 @interface ViewController ()
 
@@ -25,5 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)openWeexPage:(id)sender {
+    WeexViewController *vc = [[WeexViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

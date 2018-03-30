@@ -7,16 +7,52 @@
 //
 
 #import "AppDelegate.h"
+#import <WeexSDK.h>
+#import <SDWebImage/SDWebImageManager.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <WXImageOperationProtocol, WXImgLoaderProtocol, WXModuleProtocol>
 
 @end
 
 @implementation AppDelegate
 
+- (id<WXImageOperationProtocol>)downloadImageWithURL:(NSString *)url imageFrame:(CGRect)imageFrame userInfo:(NSDictionary *)options completed:(void(^)(UIImage *image,  NSError *error, BOOL finished))completedBlock {
+    return (id<WXImageOperationProtocol>)[[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:url] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        if (completedBlock) {
+            completedBlock(image, error, finished);
+        }
+    }];
+}
+
+- (void)cancel {
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    
+    
+    [WXAppConfiguration setAppGroup:@"test"];
+    [WXAppConfiguration setAppName:@"WeexDemo"];
+    [WXAppConfiguration setAppVersion:@"1.0.0"];
+    
+    //init sdk environment
+    [WXSDKEngine initSDKEnvironment];
+    
+    [WXSDKEngine registerHandler:self withProtocol:@protocol(WXImgLoaderProtocol)];
+    
+    //register custom module and component，optional
+//    [WXSDKEngine registerComponent:@"MyView" withClass:[MyViewComponent class]];
+//    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
+    
+    //register the implementation of protocol, optional
+//    [WXSDKEngine registerHandler:[WXNavigationDefaultImpl new] withProtocol:@protocol(WXNavigationProtocol)];
+    
+    //set the log level
+    [WXLog setLogLevel: WXLogLevelAll];
+    
     return YES;
 }
 
