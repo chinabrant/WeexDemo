@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <WeexSDK.h>
 #import <SDWebImage/SDWebImageManager.h>
+#import "WXRouterModule.h"
 
 @interface AppDelegate () <WXImageOperationProtocol, WXImgLoaderProtocol, WXModuleProtocol>
 
@@ -42,6 +43,8 @@
     [WXSDKEngine initSDKEnvironment];
     
     [WXSDKEngine registerHandler:self withProtocol:@protocol(WXImgLoaderProtocol)];
+    
+    [WXSDKEngine registerModule:@"router" withClass:[WXRouterModule class]];
     
     //register custom module and component，optional
 //    [WXSDKEngine registerComponent:@"MyView" withClass:[MyViewComponent class]];
