@@ -10,6 +10,7 @@
 		0158E96BA89BC15EFD5D8C12 /* libPods-WeexDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31043EB2B97DD3B7BD99FC92 /* libPods-WeexDemo.a */; };
 		94A64EA4207A171200214318 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A64EA3207A171200214318 /* SecondViewController.m */; };
 		94A64EA7207A174700214318 /* WXRouterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A64EA6207A174700214318 /* WXRouterModule.m */; };
+		9412D361207A18E200EDCA77 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 9412D360207A18E100EDCA77 /* index.js */; };
 		94CE1DF6206E1B5F008A6552 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE1DF5206E1B5F008A6552 /* AppDelegate.m */; };
 		94CE1DF9206E1B5F008A6552 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE1DF8206E1B5F008A6552 /* ViewController.m */; };
 		94CE1DFC206E1B5F008A6552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CE1DFA206E1B5F008A6552 /* Main.storyboard */; };
@@ -17,7 +18,6 @@
 		94CE1E01206E1B62008A6552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CE1DFF206E1B62008A6552 /* LaunchScreen.storyboard */; };
 		94CE1E04206E1B62008A6552 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE1E03206E1B62008A6552 /* main.m */; };
 		94CE1E0C206E36EE008A6552 /* WeexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE1E0B206E36EE008A6552 /* WeexViewController.m */; };
-		94CE1E10206E4420008A6552 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 94CE1E0F206E4420008A6552 /* index.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +28,7 @@
 		94A64EA3207A171200214318 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		94A64EA5207A174700214318 /* WXRouterModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXRouterModule.h; sourceTree = "<group>"; };
 		94A64EA6207A174700214318 /* WXRouterModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXRouterModule.m; sourceTree = "<group>"; };
+		9412D360207A18E100EDCA77 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		94CE1DF1206E1B5F008A6552 /* WeexDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeexDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CE1DF4206E1B5F008A6552 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94CE1DF5206E1B5F008A6552 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		94CE1E03206E1B62008A6552 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		94CE1E0A206E36EE008A6552 /* WeexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeexViewController.h; sourceTree = "<group>"; };
 		94CE1E0B206E36EE008A6552 /* WeexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeexViewController.m; sourceTree = "<group>"; };
-		94CE1E0F206E4420008A6552 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +82,8 @@
 				94CE1DF8206E1B5F008A6552 /* ViewController.m */,
 				94CE1DFA206E1B5F008A6552 /* Main.storyboard */,
 				94CE1DFD206E1B62008A6552 /* Assets.xcassets */,
-				94CE1E0F206E4420008A6552 /* index.js */,
 				94CE1DFF206E1B62008A6552 /* LaunchScreen.storyboard */,
+				9412D360207A18E100EDCA77 /* index.js */,
 				94CE1E02206E1B62008A6552 /* Info.plist */,
 				94CE1E03206E1B62008A6552 /* main.m */,
 				94CE1E0A206E36EE008A6552 /* WeexViewController.h */,
@@ -176,7 +176,7 @@
 				94CE1E01206E1B62008A6552 /* LaunchScreen.storyboard in Resources */,
 				94CE1DFE206E1B62008A6552 /* Assets.xcassets in Resources */,
 				94CE1DFC206E1B5F008A6552 /* Main.storyboard in Resources */,
-				94CE1E10206E4420008A6552 /* index.js in Resources */,
+				9412D361207A18E200EDCA77 /* index.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
