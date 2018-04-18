@@ -17,6 +17,7 @@ WX_EXPORT_METHOD(@selector(pushUrl:))
 - (void)pushUrl:(NSString *)url {
     dispatch_async(dispatch_get_main_queue(), ^{
         SecondViewController *vc = [[SecondViewController alloc] init];
+        vc.url = url;
         [((UINavigationController *) [UIApplication sharedApplication].keyWindow.rootViewController) pushViewController:vc animated:YES];
     });
     

@@ -10,6 +10,7 @@
 #import <WeexSDK.h>
 #import <SDWebImage/SDWebImageManager.h>
 #import "WXRouterModule.h"
+#import "NSString+md5.h"
 
 @interface AppDelegate () <WXImageOperationProtocol, WXImgLoaderProtocol, WXModuleProtocol>
 
@@ -18,11 +19,25 @@
 @implementation AppDelegate
 
 - (id<WXImageOperationProtocol>)downloadImageWithURL:(NSString *)url imageFrame:(CGRect)imageFrame userInfo:(NSDictionary *)options completed:(void(^)(UIImage *image,  NSError *error, BOOL finished))completedBlock {
+    
+    // 先从缓存拿图片
+    SDImageCache *cache = [SDImageCache sharedImageCache];
+    UIImage *image = [cache imageFromCacheForKey:[url yt_md5Str]];
+    if (image) {
+        completedBlock(image, nil, YES);
+        return nil;
+    }
+    
     return (id<WXImageOperationProtocol>)[[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:url] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         
     } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
         if (completedBlock) {
             completedBlock(image, error, finished);
+        }
+        
+        if (image) {
+            SDImageCache *cache = [SDImageCache sharedImageCache];
+            [cache storeImage:image forKey:[url yt_md5Str] toDisk:YES completion:nil];
         }
     }];
 }

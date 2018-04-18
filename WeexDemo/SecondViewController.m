@@ -10,28 +10,33 @@
 
 @interface SecondViewController ()
 
+@property (nonatomic, strong) UILabel *label;
+
 @end
 
 @implementation SecondViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"Weex 打开的页面";
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.label.text = self.url;
+    [self.label sizeToFit];
+    
+    [self.view addSubview:self.label];
+    self.label.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UILabel *)label {
+    if (!_label) {
+        _label = [UILabel new];
+        _label.textColor = [UIColor redColor];
+        _label.textAlignment = NSTextAlignmentCenter;
+        
+    }
+    
+    return _label;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
